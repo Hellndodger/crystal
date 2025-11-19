@@ -39,26 +39,26 @@ export const Timer = ({ onTimeUpdate }: TimerProps) => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4 p-6 border border-border bg-card rounded">
-      <div className="text-5xl font-mono font-bold text-primary tracking-wider">
+    <div className="flex flex-col items-center gap-4 p-8 border-2 border-primary/30 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl rounded-xl shadow-lg">
+      <div className="text-6xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary tracking-wider animate-glow-pulse">
         {formatTime(seconds)}
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-3">
         <Button
           variant="outline"
           size="icon"
           onClick={() => setIsRunning(!isRunning)}
-          className="h-12 w-12"
+          className="h-14 w-14 hover:scale-110 transition-transform duration-300 border-2"
         >
-          {isRunning ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+          {isRunning ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
         </Button>
         <Button
           variant="outline"
           size="icon"
           onClick={handleReset}
-          className="h-12 w-12"
+          className="h-14 w-14 hover:scale-110 transition-transform duration-300 border-2"
         >
-          <RotateCcw className="h-5 w-5" />
+          <RotateCcw className="h-6 w-6" />
         </Button>
       </div>
     </div>

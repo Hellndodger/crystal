@@ -61,12 +61,14 @@ export const StatsPage = () => {
   const maxDomain = Math.max(...chartData.map((d) => d.volume), 1000);
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6">Performance Statistics</h2>
+    <div className="max-w-6xl mx-auto animate-fade-in">
+      <h2 className="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/70">
+        Performance Statistics
+      </h2>
 
       <div className="grid md:grid-cols-2 gap-6">
         {/* Exercise Selection */}
-        <Card className="border-border bg-card/50">
+        <Card className="border-border bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-xl">
           <CardHeader>
             <CardTitle>Select 5 Exercises for Pentagon Chart</CardTitle>
             <p className="text-sm text-muted-foreground mt-2">
@@ -109,7 +111,7 @@ export const StatsPage = () => {
         </Card>
 
         {/* Pentagon Chart */}
-        <Card className="border-border bg-card/50">
+        <Card className="border-border bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-xl">
           <CardHeader>
             <CardTitle>Performance Pentagon</CardTitle>
             <p className="text-sm text-muted-foreground mt-2">
@@ -153,7 +155,7 @@ export const StatsPage = () => {
       </div>
 
       {/* User Settings */}
-      <Card className="border-border bg-card/50 mt-6">
+      <Card className="border-border bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-xl mt-6 animate-fade-in">
         <CardHeader>
           <CardTitle>User Settings</CardTitle>
         </CardHeader>
