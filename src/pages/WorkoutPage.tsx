@@ -7,8 +7,9 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Timer } from '@/components/Timer';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Plus, Save, Trash2 } from 'lucide-react';
+import { Plus, Save, Trash2, Sparkles } from 'lucide-react';
 import { toast } from 'sonner';
+import confetti from 'canvas-confetti';
 
 interface WorkoutSet {
   time: number;
@@ -89,23 +90,36 @@ export const WorkoutPage = () => {
     };
 
     saveWorkout(workoutData);
-    toast.success('Workout saved!');
+    
+    // Celebration confetti!
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#06b6d4', '#a855f7', '#3b82f6'],
+    });
+    
+    toast.success('🎉 Workout Complete! Amazing work!');
     navigate('/history');
   };
 
   if (!workoutStarted) {
     return (
-      <div className="max-w-2xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6">Select Exercises</h2>
-        <Card className="border-border bg-card/50">
+      <div className="max-w-2xl mx-auto animate-fade-in">
+        <h2 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/70 flex items-center gap-3">
+          Select Exercises
+          <Sparkles className="h-6 w-6 text-primary animate-pulse" />
+        </h2>
+        <Card className="border-border bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-xl">
           <CardHeader>
-            <CardTitle>Choose your static holds</CardTitle>
+            <CardTitle className="text-xl">Choose your static holds</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            {data.availableExercises.map((exercise) => (
+            {data.availableExercises.map((exercise, index) => (
               <div
                 key={exercise}
-                className="flex items-center space-x-3 p-3 rounded border border-border hover:border-primary transition-colors"
+                className="flex items-center space-x-3 p-4 rounded-lg border-2 border-border hover:border-primary bg-gradient-to-r from-muted/30 to-transparent transition-all duration-300 hover:scale-[1.02] animate-slide-up"
+                style={{ animationDelay: `${index * 0.05}s` }}
               >
                 <Checkbox
                   id={exercise}
@@ -124,9 +138,11 @@ export const WorkoutPage = () => {
         </Card>
         <Button
           onClick={handleStartWorkout}
-          className="w-full mt-6"
+          size="lg"
+          className="w-full mt-6 bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300"
           disabled={selectedExercises.length === 0}
         >
+          <Sparkles className="h-5 w-5 mr-2" />
           Start Workout
         </Button>
       </div>
@@ -134,11 +150,18 @@ export const WorkoutPage = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-3xl font-bold">Active Workout</h2>
-        <Button onClick={handleFinishWorkout} className="gap-2">
-          <Save className="h-4 w-4" />
+    <div className="max-w-4xl mx-auto animate-fade-in">
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/70 flex items-center gap-3">
+          Active Workout
+          <div className="h-3 w-3 rounded-full bg-red-500 animate-pulse" />
+        </h2>
+        <Button
+          onClick={handleFinishWorkout}
+          size="lg"
+          className="gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          <Save className="h-5 w-5" />
           Finish Workout
         </Button>
       </div>
@@ -146,7 +169,7 @@ export const WorkoutPage = () => {
       <div className="grid md:grid-cols-2 gap-6">
         {/* Current Set Input */}
         <div className="space-y-4">
-          <Card className="border-border bg-card/50">
+          <Card className="border-border bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-xl">
             <CardHeader>
               <CardTitle>Current Exercise</CardTitle>
             </CardHeader>
@@ -202,8 +225,12 @@ export const WorkoutPage = () => {
                 />
               </div>
 
-              <Button onClick={handleAddSet} className="w-full gap-2">
-                <Plus className="h-4 w-4" />
+              <Button
+                onClick={handleAddSet}
+                size="lg"
+                className="w-full gap-2 bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <Plus className="h-5 w-5" />
                 Add Set
               </Button>
             </CardContent>
@@ -214,7 +241,7 @@ export const WorkoutPage = () => {
 
         {/* Workout Summary */}
         <div>
-          <Card className="border-border bg-card/50">
+          <Card className="border-border bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-xl">
             <CardHeader>
               <CardTitle>Workout Summary</CardTitle>
             </CardHeader>

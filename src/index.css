@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Arrow Theme - Dark precision aesthetic */
+    /* Arrow Theme - Stunning gradient aesthetic */
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
 
@@ -21,7 +21,7 @@ All colors MUST be HSL.
     --primary: 189 95% 51%;
     --primary-foreground: 240 10% 3.9%;
 
-    --secondary: 240 5% 12%;
+    --secondary: 265 100% 65%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 240 5% 12%;
@@ -37,12 +37,26 @@ All colors MUST be HSL.
     --input: 240 5% 16%;
     --ring: 189 95% 51%;
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
 
-    /* Arrow-specific design tokens */
-    --glow-cyan: 189 95% 51%;
-    --glass-bg: 240 8% 8%;
-    --sharp-border: 240 5% 20%;
+    /* Stunning gradient tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(189, 95%, 51%), hsl(265, 100%, 65%));
+    --gradient-dark: linear-gradient(180deg, hsl(240, 10%, 3.9%), hsl(240, 15%, 6%));
+    --gradient-card: linear-gradient(135deg, hsla(240, 8%, 8%, 0.8), hsla(240, 8%, 6%, 0.6));
+    --glow-cyan: 0 0 30px hsla(189, 95%, 51%, 0.4);
+    --glow-purple: 0 0 30px hsla(265, 100%, 65%, 0.4);
+    --glass-bg: hsla(240, 8%, 8%, 0.4);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(180deg, hsl(240, 10%, 3.9%) 0%, hsl(240, 15%, 6%) 50%, hsl(265, 40%, 8%) 100%);
+    background-attachment: fixed;
   }
 }
 
