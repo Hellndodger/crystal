@@ -113,7 +113,7 @@ export const StatsPage = () => {
         {/* Pentagon Chart */}
         <Card className="border-border bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-xl">
           <CardHeader>
-            <CardTitle>Performance Pentagon</CardTitle>
+            <CardTitle>Performance Crystal</CardTitle>
             <p className="text-sm text-muted-foreground mt-2">
               Volume = (Bodyweight + Added Weight) × Time
             </p>

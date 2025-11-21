@@ -21,7 +21,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               ▸
             </span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/80">
-              Calisthenics Arrow
+              Crystal
             </span>
             <Sparkles className="h-5 w-5 text-primary animate-pulse" />
           </h1>
