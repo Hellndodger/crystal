@@ -6,8 +6,8 @@
 
 **Crystal** is a modern, minimalist web application designed specifically for tracking **static calisthenics exercises** (isometrics). Unlike traditional fitness trackers that focus on reps, Crystal focuses on *Time Under Tension* and calculates volume based on bodyweight leverage.
 
-![Dashboard Preview](./public/screenshot.png)
-*(Note: Add a screenshot of your dashboard to the public folder and rename it to screenshot.png)*
+![Dashboard Preview](./public/pagescreen.jpg)
+
 
 ## ✨ Features
 
